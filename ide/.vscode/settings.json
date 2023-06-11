@@ -1,13 +1,13 @@
 {
   "jenkins-runner.jobs": {
     "ide": {
-      "runWith": "pipelines-9090",
+      "runWith": "pipelines-7080",
       "name": "ide",
       "isDefault": true
     }
   },
   "jenkins-runner.hostConfigs": {
-    "pipelines-9090": {
+    "pipelines-7080": {
       "url": "http://localhost:9090",
       "user": "kit",
       "password": "kit",
