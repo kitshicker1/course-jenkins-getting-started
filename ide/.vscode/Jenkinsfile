@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+   // tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+       // maven "M3"
+   // }
+
+    stages {
+        
+        stage('Git') {
+            steps {
+                    // Get some code from a GitHub repository
+                git branch: 'main', url: 'https://github.com/kitshicker1/jgsu-spring-petclinic.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh './mvnw clean package'
+            }
+
+            post {
+                
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+    }
+}
